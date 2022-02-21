@@ -18,12 +18,9 @@ pip3 install --upgrade cloudformation-cli cloudformation-cli-python-plugin
 
 1. Clone this repository to your environment where you have the `cfn` CLI installed
 
-2. Run the `cfn submit` command to register the hook with CloudFormation and parse the ARN using Regex
+2. Run the `cfn submit` command to register the hook with CloudFormation
 ```bash
-RESPONSE=$(cfn submit --set-default) # [--region region-name-1]
-PATTERN="arn:aws:cloudformation:[a-zA-Z\-]+[0-9]:[0-9]{12}:type\/hook\/[a-zA-Z\-]+"
-[[ $RESPONSE =~ $PATTERN ]] # performs regex
-HOOK_TYPE_ARN=${BASH_REMATCH[0]}
+cfn submit --set-default # [--region region-name-1]
 ```
 
 4. Replace <Tag1,Tag2> in the .type_config.json file with your comma-delimited string of required tags and then activate the hook using the following command structure:
