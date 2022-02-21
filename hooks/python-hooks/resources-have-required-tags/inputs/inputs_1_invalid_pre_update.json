@@ -1,0 +1,66 @@
+{
+  "AWS::SQS::Queue": {
+    "resourceProperties": {
+      "QueueName": "MyQueue",
+      "KmsMasterKeyId": "KMS-KEY-ARN-INVALID-PRE-UPDATE",
+      "Tags": [
+        {
+          "Key": "sham",
+          "Value": "eggs"
+        }  
+      ]
+    },
+    "previousResourceProperties": {
+      "QueueName": "MyOldQueue",
+      "KmsMasterKeyId": "KMS-KEY-ARN-INVALID-PRE-UPDATE",
+      "Tags": [
+        {
+          "Key": "sham",
+          "Value": "eggs"
+        }  
+      ]
+    }
+  },
+  "AWS::S3::Bucket": {
+    "resourceProperties": {
+      "BucketName": "test-compliant",
+      "BucketEncryption": {
+        "ServerSideEncryptionConfiguration": [
+          {
+            "ServerSideEncryptionByDefault": {
+              "SSEAlgorithm": "AES256",
+              "KMSMasterKeyID": "KMS-KEY-ARN-INVALID-PRE-UPDATE"
+            },
+            "BucketKeyEnabled": "true"
+          }
+        ]
+      },
+      "Tags": [
+        {
+          "Key": "sham",
+          "Value": "eggs"
+        }  
+      ]
+    },
+    "previousResourceProperties": {
+      "BucketName": "test-compliant",
+      "BucketEncryption": {
+        "ServerSideEncryptionConfiguration": [
+          {
+            "ServerSideEncryptionByDefault": {
+              "SSEAlgorithm": "aws:kms",
+              "KMSMasterKeyID": "KMS-KEY-ARN-INVALID-PRE-UPDATE"
+            },
+            "BucketKeyEnabled": "true"
+          }
+        ]
+      },
+      "Tags": [
+        {
+          "Key": "ham",
+          "Value": "eggs"
+        }  
+      ]
+    }
+  }
+}

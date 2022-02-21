@@ -1,0 +1,12 @@
+{
+    "properties": {
+        "requiredTags": {
+            "description": "Comma-delimited string of tags that should be present on all resources",
+            "type": "string"
+        }
+    },
+    "required": [],
+    "additionalProperties": false,
+    "definitions": {},
+    "typeName": "Generic::TagEnforcement::Hook"
+}

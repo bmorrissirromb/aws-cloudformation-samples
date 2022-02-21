@@ -1,0 +1,36 @@
+{
+  "AWS::S3::Bucket": {
+    "resourceProperties": {
+      "BucketName": "test-compliant",
+      "BucketEncryption": {
+        "ServerSideEncryptionConfiguration": [
+          {
+            "ServerSideEncryptionByDefault": {
+              "SSEAlgorithm": "aws:kms",
+              "KMSMasterKeyID": "test-key"
+            },
+            "BucketKeyEnabled": "true"
+          }
+        ]
+      },
+      "Tags": [
+        {
+          "Key": "ham",
+          "Value": "eggs"
+        }  
+      ]
+    }
+  },
+  "AWS::SQS::Queue": {
+        "resourceProperties": {
+            "QueueName": "MyQueue",
+            "KmsMasterKeyId": "KMS-KEY-ARN",
+            "Tags": [
+                {
+                  "Key": "ham",
+                  "Value": "eggs"
+                }  
+            ]
+        }
+    }
+}

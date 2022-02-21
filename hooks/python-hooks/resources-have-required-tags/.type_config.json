@@ -1,0 +1,11 @@
+{
+   "CloudFormationConfiguration": {
+      "HookConfiguration": {
+         "TargetStacks": "ALL",
+         "FailureMode": "FAIL",
+         "Properties": {
+            "requiredTags": "<Tag1,Tag2>"
+         }
+      }
+   }
+}
