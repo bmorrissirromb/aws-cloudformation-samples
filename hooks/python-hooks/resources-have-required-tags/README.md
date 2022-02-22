@@ -6,7 +6,24 @@ The resource list is static and must be updated periodically when CloudFormation
 
 ## Getting Started
 
-1. Create a virtual environment and install cfn CLI:
+1. Resize your Cloud9 env to 50 GB
+```bash
+wget https://raw.githubusercontent.com/brianterry/resource-type-workshop/main/resize.sh
+chmod +x resize.sh
+./resize.sh 50
+```
+
+2. Install OpenJDK
+```bash
+sudo yum -y update
+sudo yum -y install java-1.8.0-openjdk-devel
+sudo update-alternatives --config java
+# When prompted, select option for java-1.8.0-openjdk.x86_64
+sudo update-alternatives --config javac
+# When prompted, select option for java-1.8.0-openjdk.x86_64
+```
+
+3. Create a virtual environment and install cfn CLI:
 ```bash
 python3 -m venv env
 source env/bin/activate
